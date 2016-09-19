@@ -1,0 +1,18 @@
+apply plugin: 'docker'
+
+buildscript {
+    repositories { jcenter() }
+    dependencies {
+        classpath 'se.transmode.gradle:gradle-docker:1.2'
+    }
+}
+
+group = "tadams"
+
+task dockerBuild(type: Docker) {
+    applicationName = "nginx"
+    addFile('nginx.conf', '/etc/nginx/')
+    dockerfile = file('Dockerfile');
+    println "*** created docker image ${project.group}/${applicationName}"
+}
+

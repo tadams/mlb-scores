@@ -1,0 +1,24 @@
+apply plugin: 'docker'
+
+buildscript {
+    repositories { jcenter() }
+    dependencies {
+        classpath 'se.transmode.gradle:gradle-docker:1.2'
+    }
+}
+
+group = "tadams"
+
+task copyImageFiles(type: Copy) {
+    from '.'
+    into 'build/docker'
+    include '*.sh'
+    include 'mlb-scores*.jar'
+}
+
+task dockerBuild(type: Docker) {
+    dependsOn copyImageFiles
+    applicationName = "mlb-scores"
+    dockerfile = file('Dockerfile')
+    println "*** created docker image ${project.group}/${applicationName}"
+}
