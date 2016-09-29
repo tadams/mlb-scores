@@ -14,3 +14,4 @@
 
 4) Virtual Box setup notes:
    - Allocate at least 2g of RAM to the VM
+   -
