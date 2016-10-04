@@ -32,7 +32,7 @@ public class GameScoresTest {
         public static WebDriver getWebDriver() {
             String driver = MoreObjects.firstNonNull(System.getProperty("WEB_DRIVER"),
                                                      Driver.FIRE_FOX.name());
-            System.out.println("Running selenium  with web driver: " + driver);
+            System.out.println("Running selenium with web driver: " + driver);
             try {
                 return Driver.valueOf(driver).driver.get();
             } catch (IllegalArgumentException e) {
