@@ -8,7 +8,6 @@ buildscript {
 }
 
 apply plugin: 'java'
-apply plugin: 'jetty'
 apply plugin: 'docker-compose'
 
 project.ext {
@@ -18,8 +17,6 @@ project.ext {
 repositories {
     mavenCentral()
 }
-
-war.enabled=false
 
 dependencies {
 
@@ -43,11 +40,16 @@ dependencies {
     testCompile 'junit:junit:4.11'
     testCompile group: 'org.assertj', name: 'assertj-core', version: '3.5.2'
     testCompile 'org.mockito:mockito-core:1.9.5'
-    testCompile group: 'org.seleniumhq.selenium', name: 'selenium-java', version: '2.53.1'
-    testCompile group: 'org.seleniumhq.selenium', name: 'selenium-firefox-driver', version: '2.53.1'
+    testCompile group: 'org.seleniumhq.selenium', name: 'selenium-java', version: '3.4.0'
+    testCompile group: 'org.seleniumhq.selenium', name: 'selenium-firefox-driver', version: '3.4.0'
 
 
 }
+
+build.doFirst {
+   exec { commandLine "ln", "-sf", "./scripts/post-commit", "./.git/hooks/post-commit" }
+}
+
 
 jar {
     archiveName = "mlb-scores-${getBuildVersion()}.jar"
