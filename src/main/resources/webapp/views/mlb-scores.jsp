@@ -39,7 +39,7 @@ img {
 	<center>
     <img src="images/mlb.png"/>
     <form class="form-input" name="gameDate" method="get" action="scores">
-            Game Date: <input type="date" name="gameDate" placeholder="yyyy-MM-dd">
+            Game Date: <input type="text" name="gameDate" placeholder="yyyy-MM-dd">
             <input type="submit">
     </form>
     <c:if test="${!errors.isEmpty()}">

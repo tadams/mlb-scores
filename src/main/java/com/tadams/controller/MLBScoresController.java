@@ -30,12 +30,11 @@ public class MLBScoresController {
     @Autowired
     MLBGamesService gamesService;
 
-    List<String> errorMsgs = new ArrayList<>();
-
     @RequestMapping(value = "/scores", method = RequestMethod.GET)
     @ResponseBody
     public ModelAndView showScoresForDate(@RequestParam(value = "gameDate", required = false) String gameDateString) {
 
+        logger.info("/scores request for {}", gameDateString);
         if (Objects.isNull(gameDateString)) {
             return defaultModelAndView();
         }

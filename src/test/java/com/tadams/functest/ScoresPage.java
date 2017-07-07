@@ -15,8 +15,7 @@ import static java.util.stream.Collectors.toList;
 public class ScoresPage {
 
     private static final String URL = String.format("http://localhost:%s/mlb-scores/scores", getPort());
-    private static final By BY_DATE_INPUT = By.cssSelector("input[type='date']");
-    private static final By BY_SUBMIT_BUTTON = By.cssSelector("input[type='submit']");
+    private static final By BY_DATE_INPUT = By.cssSelector("input[name='gameDate']");
     private static final By BY_ERROR = By.className("error");
 
     private final WebDriver webDriver;
@@ -33,10 +32,9 @@ public class ScoresPage {
         loadScoresPage();
 
         WebElement dateInput = webDriver.findElement(BY_DATE_INPUT);
-        dateInput.sendKeys(gameDate);
 
-        WebElement submit = webDriver.findElement(BY_SUBMIT_BUTTON);
-        submit.click();
+        dateInput.sendKeys(gameDate);
+        dateInput.submit();
     }
 
     public String getTitle() {
