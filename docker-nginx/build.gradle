@@ -7,12 +7,13 @@ buildscript {
     }
 }
 
-group = "tadams"
+group = "creg.tom-adams.net:5000"
 
 task dockerBuild(type: Docker) {
     applicationName = "nginx"
     addFile('nginx.conf', '/etc/nginx/')
     dockerfile = file('Dockerfile');
-    println "*** created docker image ${project.group}/${applicationName}"
+    tagVersion = System.getenv("BUILD_NUMBER") ?: "0"
+    println "*** created docker image ${project.group}/${applicationName}:${tagVersion}"
 }
 

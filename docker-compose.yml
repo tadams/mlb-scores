@@ -1,9 +1,9 @@
 version: '2'
 services:
   mlb-scores-web:
-    image: tadams/mlb-scores
+    image: "creg.tom-adams.net:5000/mlb-scores:${BUILD_NUMBER}"
   mlb-scores-nginx:
-    image: tadams/nginx
+    image: "creg.tom-adams.net:5000/nginx:${BUILD_NUMBER}"
     links:
       - mlb-scores-web
     ports:

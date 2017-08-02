@@ -114,6 +114,9 @@ task functionalTest(type: Test) {
     }
 }
 dockerCompose.isRequiredBy(functionalTest)
+dockerCompose {
+   environment.put 'BUILD_NUMBER', System.getenv("BUILD_NUMBER") ?: "0"
+}
 
 task(integrationTest, type: Test) {
     useJUnit {
