@@ -13,7 +13,7 @@ task dockerBuild(type: Docker) {
     applicationName = "nginx"
     addFile('nginx.conf', '/etc/nginx/')
     dockerfile = file('Dockerfile');
-    tagVersion = System.getenv("TAG_VERSION") ?: "0"
+    tagVersion = System.getenv("BUILD_NUMBER") ?: "0"
     println "*** created docker image ${project.group}/${applicationName}:${tagVersion}"
 }
 

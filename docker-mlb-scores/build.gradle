@@ -20,6 +20,6 @@ task dockerBuild(type: Docker) {
     dependsOn copyImageFiles
     applicationName = "mlb-scores"
     dockerfile = file('Dockerfile')
-    tagVersion = System.getenv("TAG_VERSION") ?: "0"
+    tagVersion = System.getenv("BUILD_NUMBER") ?: "0"
     println "*** created docker image ${project.group}/${applicationName}:${tagVersion}"
 }
