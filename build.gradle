@@ -70,14 +70,6 @@ jar {
     exclude 'META-INF/*.RSA', 'META-INF/*.SF','META-INF/*.DSA'
 }
 
-jar.finalizedBy('copyJar')
-
-task copyJar(type: Copy) {
-    from 'build/libs/'
-    into 'docker-java8/'
-    include 'mlb-scores*.jar'
-}
-
 test {
     useJUnit {
         excludeCategories 'com.tadams.Integration'
@@ -115,7 +107,7 @@ task functionalTest(type: Test) {
 }
 dockerCompose.isRequiredBy(functionalTest)
 dockerCompose {
-   environment.put 'TAG_VERSION', System.getenv("TAG_VERSION") ?: "0"
+   environment.put 'TAG_VERSION', System.getenv("BUILD_NUMBER") ?: "0"
 }
 
 task(integrationTest, type: Test) {
@@ -134,7 +126,7 @@ def getBuildVersion() {
 }
 
 def getBuildNumber() {
-    def buildNumber =  System.getenv("BUILD_NUMBER") == null ? "SNAPSHOT" :  System.getenv("BUILD_NUMBER")
+    def buildNumber =  System.getenv("BUILD_NUMBER") ?: "SNAPSHOT";
     println "Build Number: $buildNumber"
     return buildNumber
 }
