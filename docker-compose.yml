@@ -1,9 +1,9 @@
 version: '2'
 services:
   mlb-scores-web:
-    image: "creg.tom-adams.net:5000/mlb-scores:${TAG_VERSION}"
+    image: "hub.tom-adams.net:5000/mlb-scores:${TAG_VERSION}"
   mlb-scores-nginx:
-    image: "creg.tom-adams.net:5000/nginx:${TAG_VERSION}"
+    image: "hub.tom-adams.net:5000/nginx:${TAG_VERSION}"
     links:
       - mlb-scores-web
     ports:

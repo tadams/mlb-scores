@@ -7,7 +7,7 @@ buildscript {
     }
 }
 
-group = "creg.tom-adams.net:5000"
+group = "hub.tom-adams.net:5000"
 
 task dockerBuild(type: Docker) {
     applicationName = "nginx"
