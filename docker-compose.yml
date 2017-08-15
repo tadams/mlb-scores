@@ -2,8 +2,10 @@ version: '2'
 services:
   mlb-scores-web:
     image: "hub.tom-adams.net:5000/tca/mlb-scores:${TAG_VERSION}"
+    container_name: tca-mlb-scores_${TAG_VERSION} 
   mlb-scores-nginx:
     image: "hub.tom-adams.net:5000/tca/nginx:${TAG_VERSION}"
+    container_name: tca-nginx_${TAG_VERSION} 
     links:
       - mlb-scores-web
     ports:
