@@ -3,7 +3,7 @@
 <html>
 <head>
     <meta charset="utf-8">
-    <title>order-api Health Check</title>
+    <title>MLB Scores Health Check</title>
 </head>
 <body style="font-family:sans-serif; font-size:16px;">
     <h1>Health Check</h1>
