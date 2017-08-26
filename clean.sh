@@ -24,6 +24,7 @@ docker pull nginx:alpine
 # clean Jenkins jobs
 rm -rf /var/lib/jenkins/workspace/mlb-scores_DockerBuild
 rm -rf /var/lib/jenkins/workspace/mlb-scores_Deploy
+rm -rf /var/lib/jenkins/workspace/mlb-scores_Build
 
 # clean build dir
 rm -rf ~/mlb-scores/build
