@@ -40,6 +40,8 @@ rm -rf ~/mlb-scores/build
 
 # remove files created in workshop
 rm -f docker-compose.yml
+rm -f ~/mlb-scores/docker-nginx/Dockerfile
+rm -f ~/mlb-scores/docker-mlb-scores/Dockerfile
 cd ~/mlb-scores/scripts
 rm -f docker*.sh
 
